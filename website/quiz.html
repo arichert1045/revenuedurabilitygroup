@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Score your Revenue Durability — Free 10-Question Quiz — RDG</title>
+  <meta name="description" content="Score your seed/Series A SaaS on the Revenue Durability Framework™ in 10 minutes. Free. Instant per-pillar breakdown.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="index.html">
+        <img src="assets/img/logo.png" alt="Revenue Durability Group">
+        <span>Revenue Durability Group</span>
+      </a>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="framework.html">Framework</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="quiz.html">Score your durability</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a class="nav-cta" href="about.html#contact">Book a call</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- INTRO -->
+    <section id="quiz-intro" class="hero">
+      <div class="wrap-narrow">
+        <span class="eyebrow">Revenue Durability Score™ · Lite</span>
+        <h1>Score your Revenue Durability in 10 minutes.</h1>
+        <p class="lead">Ten questions. Two per pillar. Instant score with a per-pillar breakdown. No signup to start — an email at the end unlocks the detailed diagnosis.</p>
+
+        <div class="grid grid-3 mt-3">
+          <div class="card">
+            <h4>10 minutes</h4>
+            <p>Ten questions, ~1 minute each. Move fast — first-instinct answers are usually the honest ones.</p>
+          </div>
+          <div class="card">
+            <h4>All five pillars</h4>
+            <p>Fit · Activation · Signal · Motion · Operating System. See where the leaks are, not just the headline score.</p>
+          </div>
+          <div class="card">
+            <h4>Actionable</h4>
+            <p>Get band-specific recommendations for your two weakest pillars, ready to walk into your next leadership meeting.</p>
+          </div>
+        </div>
+
+        <div class="hero-cta mt-3">
+          <button id="quiz-start" class="btn btn-primary btn-lg">Start the quiz →</button>
+          <a href="diagnostic.html" class="btn btn-ghost btn-lg">Want the full 25-question version?</a>
+        </div>
+        <p class="text-slate mt-2" style="font-size: 0.9rem;">
+          Built for seed and Series A B2B SaaS. If you're pre-PMF, the quiz will still work, but the framework is calibrated for post-PMF companies with a real renewal curve.
+        </p>
+      </div>
+    </section>
+
+    <!-- QUIZ STAGE -->
+    <section id="quiz-stage" class="hidden">
+      <div class="quiz-shell">
+        <div class="quiz-progress"><div class="quiz-progress-fill" id="quiz-progress-fill"></div></div>
+        <div class="quiz-step-meta" id="quiz-step-meta"></div>
+        <div class="quiz-card" id="quiz-card"></div>
+        <div class="quiz-nav">
+          <button id="quiz-prev" class="btn btn-ghost">← Back</button>
+          <button id="quiz-next" class="btn btn-primary">Next →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULT -->
+    <section id="quiz-result" class="hidden" style="padding-top: 0;">
+      <div class="result-hero">
+        <div class="wrap-narrow">
+          <span class="eyebrow" style="color: var(--amber-bright);">Your Revenue Durability Score™</span>
+          <div class="score-display">
+            <span class="num" id="score-total">–</span>
+            <span class="of">/ 100</span>
+          </div>
+          <span id="score-band" class="result-band-large">–</span>
+          <p class="lead mt-2" id="score-band-summary" style="max-width: 640px;"></p>
+
+          <div class="pillar-scores" id="pillar-scores"></div>
+
+          <p style="color: rgba(255,255,255,0.85); margin-top: 24px;">
+            Your two biggest opportunities are in <strong style="color: var(--amber-bright);"><span id="priority-focus">–</span></strong>.
+            Unlock the detailed diagnosis and pillar-by-pillar recommendations below.
+          </p>
+        </div>
+      </div>
+
+      <div class="wrap-narrow" style="margin-top: 40px;">
+        <div class="report-section report-locked" style="position: relative;">
+          <div class="locked-content" id="report-body">
+            <!-- populated by quiz.js -->
+          </div>
+
+          <div class="lock-overlay">
+            <div class="lock-card">
+              <span class="eyebrow">Unlock your full report</span>
+              <h3>The detailed diagnosis is one email away.</h3>
+              <p>We'll send you the full report — pillar-by-pillar diagnosis, band-specific recommendations, and a link to schedule a 30-minute call to walk through it. No spam. Unsubscribe anytime.</p>
+              <!-- UNLOCK_FORM: Replace action with your Formspree / Getform / Netlify endpoint.
+                   With YOUR- placeholder present, quiz.js unlocks locally and doesn't submit anywhere. -->
+              <form id="unlock-form" action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
+                <input type="hidden" name="_subject" value="RDG Lite Quiz — Unlock Request">
+                <input type="hidden" name="source" value="quiz-lite">
+                <div class="form-field">
+                  <label for="unlock-email">Work email</label>
+                  <input id="unlock-email" name="email" type="email" required autocomplete="email">
+                </div>
+                <div class="form-field">
+                  <label for="unlock-name">First name</label>
+                  <input id="unlock-name" name="name" type="text" required autocomplete="given-name">
+                </div>
+                <div class="form-field">
+                  <label for="unlock-company">Company &amp; stage</label>
+                  <input id="unlock-company" name="company" type="text" placeholder="e.g. Acme, Series A, $4M ARR">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Unlock my report →</button>
+                <p class="text-slate mt-1" style="font-size: 0.8rem; text-align: center;">
+                  We'll never share your email. One follow-up in the next week — you decide what happens next.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div id="unlock-thanks" class="hidden mt-3">
+          <div class="callout">
+            <span class="label">Thanks — you're unlocked</span>
+            The detailed report is above. We'll follow up within two business days with a copy for your records.
+          </div>
+        </div>
+
+        <div class="cta-strip" style="border-radius: var(--radius-lg); margin: 40px 0;">
+          <div class="wrap center">
+            <h3 style="color: var(--white);">Want to talk through your score with an operator?</h3>
+            <p class="lead" style="color: rgba(255,255,255,0.85); margin-bottom: 20px;">30 minutes. No pitch. If we're not a fit, we'll say so.</p>
+            <div class="hero-cta" style="justify-content: center;">
+              <a href="about.html#contact" class="btn btn-primary btn-lg">Book a 30-min call</a>
+              <a href="diagnostic.html" class="btn btn-ghost btn-lg">Take the full 25-question diagnostic</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="brand" style="color: var(--white); margin-bottom: 12px;">
+            <span class="brand-fallback">RDG</span>
+            <span style="color: var(--white);">Revenue Durability Group</span>
+          </div>
+          <p style="max-width: 380px;">Fractional Customer Success leadership for seed and Series A SaaS. Durable revenue, built on purpose.</p>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul class="footer-links">
+            <li><a href="framework.html">Framework</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="quiz.html">Score your durability</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@revenuedurability.com">hello@revenuedurability.com</a></li>
+            <li><a href="about.html#contact">Book a 30-min call</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <span>© <span id="year"></span> Revenue Durability Group. All rights reserved.</span>
+        <span>Revenue Durability™, Revenue Durability Score™, and the Revenue Durability Framework™ are trademarks of Revenue Durability Group.</span>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>window.RDG_MODE = 'lite';</script>
+  <script src="assets/js/quiz-data.js"></script>
+  <script src="assets/js/quiz.js"></script>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
