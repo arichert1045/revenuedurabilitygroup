@@ -1,5 +1,5 @@
 // ===========================================================================
-// Revenue Durability Score™ — Question Bank
+// The Revenue Half-Life™ — Question Bank
 // Each pillar has 5 full-diagnostic questions. Lite = first 2 per pillar.
 // Each option is scored 0–4. Question max = 4; pillar max = 20 (full) / 8 (lite).
 // Total max: 100 (full) / 40 (lite) — displayed rescaled to 0–100.
@@ -18,23 +18,23 @@ window.RDG_DATA = {
   questions: [
     // ---------- PILLAR 1: FIT ----------
     { pillar: 'fit', lite: true,
-      prompt: "Do sales, CS, and product agree — in writing — on your ICP?",
+      prompt: "Do sales, CS, and product agree — in writing — on your Deep-Roots Customer?",
       sub: "The definition of who you sell to should be recent and shared across the go-to-market team.",
       options: [
         { text: "Yes — documented, agreed, updated within the last 6 months.", score: 4 },
         { text: "Documented and agreed, but 12+ months old.", score: 3 },
         { text: "Informal agreement, not written down.", score: 2 },
         { text: "Sales, CS, and product would each give a different answer.", score: 1 },
-        { text: "No shared ICP definition exists.", score: 0 }
+        { text: "No shared Deep-Roots Customer definition exists.", score: 0 }
       ]},
     { pillar: 'fit', lite: true,
-      prompt: "What share of last quarter's closed-won deals would you, today, classify as on-ICP?",
-      sub: "Not 'good customers who might work out' — actually on-ICP as defined.",
+      prompt: "What share of last quarter's closed-won deals would you, today, classify as Deep-Roots?",
+      sub: "Not 'good customers who might work out' — actually Deep-Roots as defined.",
       options: [
-        { text: "80% or more on-ICP.", score: 4 },
-        { text: "60–79% on-ICP.", score: 3 },
-        { text: "40–59% on-ICP.", score: 2 },
-        { text: "20–39% on-ICP.", score: 1 },
+        { text: "80% or more Deep-Roots.", score: 4 },
+        { text: "60–79% Deep-Roots.", score: 3 },
+        { text: "40–59% Deep-Roots.", score: 2 },
+        { text: "20–39% Deep-Roots.", score: 1 },
         { text: "Under 20% — or I can't tell.", score: 0 }
       ]},
     { pillar: 'fit', lite: false,
@@ -58,14 +58,14 @@ window.RDG_DATA = {
         { text: "CS meets the customer during onboarding, not before.", score: 0 }
       ]},
     { pillar: 'fit', lite: false,
-      prompt: "Of customers who churned in the last 12 months, what share were off-ICP at sale?",
+      prompt: "Of customers who churned in the last 12 months, what share were wrong-fit at sale?",
       sub: "If you can't answer this, the answer is probably 'a lot.'",
       options: [
-        { text: "Under 20% off-ICP — we mostly lose good-fit customers to legitimate reasons.", score: 4 },
-        { text: "20–40% off-ICP — some pattern, being worked on.", score: 3 },
-        { text: "40–60% off-ICP — the pattern is loud.", score: 2 },
-        { text: "Over 60% off-ICP — we're churning what we shouldn't have sold.", score: 1 },
-        { text: "We haven't tagged churn by ICP fit.", score: 0 }
+        { text: "Under 20% wrong-fit — we mostly lose Deep-Roots customers to legitimate reasons.", score: 4 },
+        { text: "20–40% wrong-fit — some pattern, being worked on.", score: 3 },
+        { text: "40–60% wrong-fit — the pattern is loud.", score: 2 },
+        { text: "Over 60% wrong-fit — we're churning what we shouldn't have sold.", score: 1 },
+        { text: "We haven't tagged churn by Deep-Roots fit.", score: 0 }
       ]},
 
     // ---------- PILLAR 2: ACTIVATION ----------
@@ -165,7 +165,7 @@ window.RDG_DATA = {
       prompt: "Have you run a churn post-mortem on every lost logo in the last 12 months — and changed something as a result?",
       sub: "Post-mortem without action is just theater.",
       options: [
-        { text: "Yes — every churn gets a post-mortem, lessons feed ICP/activation playbooks.", score: 4 },
+        { text: "Yes — every churn gets a post-mortem, lessons feed Deep-Roots/activation playbooks.", score: 4 },
         { text: "Most churns get a post-mortem; changes are inconsistent.", score: 3 },
         { text: "We post-mortem big-logo churns only.", score: 2 },
         { text: "Rare and informal.", score: 1 },
@@ -295,7 +295,7 @@ window.RDG_DATA = {
     },
     { min: 81, max: 100, key: 'compounding', label: 'Compounding',
       summary: "Rare at seed/A. Protect what you have and prepare to scale it into the next stage.",
-      diagnosis: "You are in the top decile for your stage. The risk now is complacency: durability decays as you scale unless the operating system scales with you. Focus on hiring quality and playbook discipline, not new frameworks.",
+      diagnosis: "You are in the top decile for your stage. The risk now is complacency: durability decays as you scale unless the operating system scales with you. Focus on hiring quality and playbook discipline, not chasing new methodologies.",
       priorityPillars: ['os']
     }
   ],
@@ -304,21 +304,21 @@ window.RDG_DATA = {
   recommendations: {
     fit: {
       leaky: [
-        "Run a 60-minute ICP working session this month with founder, head of sales, and senior CSM. Ship a written, one-page ICP with 3–5 qualifying and 3 disqualifying criteria.",
+        "Run a 60-minute Deep-Roots working session this month with founder, head of sales, and senior CSM. Ship a written, one-page Deep-Roots Customer definition with 3–5 qualifying and 3 disqualifying criteria.",
         "Stand up a weekly pre-close pipeline review where CS can flag at-risk deals before they land.",
-        "Tag every churned logo of the last 12 months on-ICP / borderline / off-ICP. Share the number with the sales team."
+        "Tag every churned logo of the last 12 months Deep-Roots / borderline / wrong-fit. Share the number with the sales team."
       ],
       surviving: [
-        "Refresh the ICP definition — most seed/A companies' ICP drifts within 12 months of Series A.",
-        "Add ICP-fit as a required field on closed-won and report it in the weekly GTM standup.",
-        "Feed off-ICP churn back into sales comp design at next comp cycle."
+        "Refresh the Deep-Roots Customer definition — most seed/A companies' definition drifts within 12 months of Series A.",
+        "Add Deep-Roots fit as a required field on closed-won and report it in the weekly GTM standup.",
+        "Feed wrong-fit churn back into sales comp design at next comp cycle."
       ],
       durable: [
         "Move from flagged pipeline to a formal CS veto on deals above a threshold ACV.",
-        "Instrument ICP-fit tracking in your CRM so it's a queryable field, not a note."
+        "Instrument Deep-Roots fit tracking in your CRM so it's a queryable field, not a note."
       ],
       compounding: [
-        "Institutionalize the ICP review as a quarterly discipline; don't let drift catch you."
+        "Institutionalize the Deep-Roots review as a quarterly discipline; don't let drift catch you."
       ]
     },
     activation: {

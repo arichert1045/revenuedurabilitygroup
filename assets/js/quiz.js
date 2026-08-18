@@ -1,5 +1,5 @@
 // ===========================================================================
-// Revenue Durability Score™ — Quiz Engine
+// The Revenue Half-Life™ — Quiz Engine
 // Powers both the lite (10-question) and full (25-question) quizzes.
 // Reads window.RDG_MODE ("lite" or "full") set in the host HTML.
 // ===========================================================================
@@ -91,7 +91,7 @@
     var allAnswered = state.answers.every(function (a) { return a !== null; });
 
     if (isLast) {
-      el.next.textContent = 'See my score →';
+      el.next.textContent = 'See my Half-Life →';
       el.next.disabled = !allAnswered;
     } else {
       el.next.textContent = 'Next →';
@@ -181,7 +181,7 @@
     if (!host) return;
 
     var html = '';
-    html += '<h3>Your durability read</h3>';
+    html += '<h3>Your Half-Life read</h3>';
     html += '<p>' + escapeHtml(r.band.diagnosis) + '</p>';
 
     html += '<h3 class="mt-3">Pillar-by-pillar diagnosis</h3>';
@@ -209,7 +209,7 @@
     html += '' +
       '<div class="callout" style="margin-top: 32px;">' +
         '<span class="label">A note on benchmarks</span>' +
-        'These bands are RDG\'s working bands for seed and Series A SaaS. They tighten with every engagement we run. If your pillar scores are unevenly distributed (e.g. very strong on Motion but weak on Fit), that pattern is more diagnostic than the headline number.' +
+        'These bands are RDG\'s working bands for seed and Series A SaaS. They tighten with every engagement we run. If your pillar Half-Lives are unevenly distributed (e.g. very strong on Motion but weak on Fit), that pattern is more diagnostic than the headline number.' +
       '</div>';
 
     host.innerHTML = html;
