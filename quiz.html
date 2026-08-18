@@ -13,9 +13,15 @@
 <body>
   <header class="site-header">
     <nav class="nav" aria-label="Primary">
-      <a class="brand" href="index.html">
-        <img src="assets/img/logo.png" alt="Revenue Durability Group">
-        <span>Revenue Durability Group</span>
+      <a class="brand" href="index.html" aria-label="Revenue Durability Group — Home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 17 L10 12 L13 15 L19 8 M14 8 L19 8 L19 13" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-a">Revenue</span><span class="brand-b">Durability</span><span class="brand-c">Group</span>
+        </span>
       </a>
       <button class="nav-toggle" aria-label="Menu">☰</button>
       <ul class="nav-links">
@@ -78,7 +84,7 @@
     <section id="quiz-result" class="hidden" style="padding-top: 0;">
       <div class="result-hero">
         <div class="wrap-narrow">
-          <span class="eyebrow" style="color: var(--amber-bright);">Your Revenue Durability Score™</span>
+          <span class="eyebrow" style="color: var(--brand-mint);">Your Revenue Durability Score™</span>
           <div class="score-display">
             <span class="num" id="score-total">–</span>
             <span class="of">/ 100</span>
@@ -89,7 +95,7 @@
           <div class="pillar-scores" id="pillar-scores"></div>
 
           <p style="color: rgba(255,255,255,0.85); margin-top: 24px;">
-            Your two biggest opportunities are in <strong style="color: var(--amber-bright);"><span id="priority-focus">–</span></strong>.
+            Your two biggest opportunities are in <strong style="color: var(--brand-mint);"><span id="priority-focus">–</span></strong>.
             Unlock the detailed diagnosis and pillar-by-pillar recommendations below.
           </p>
         </div>
@@ -141,7 +147,7 @@
 
         <div class="cta-strip" style="border-radius: var(--radius-lg); margin: 40px 0;">
           <div class="wrap center">
-            <h3 style="color: var(--white);">Want to talk through your score with an operator?</h3>
+            <h3 style="color: var(--ink);">Want to talk through your score with an operator?</h3>
             <p class="lead" style="color: rgba(255,255,255,0.85); margin-bottom: 20px;">30 minutes. No pitch. If we're not a fit, we'll say so.</p>
             <div class="hero-cta" style="justify-content: center;">
               <a href="about.html#contact" class="btn btn-primary btn-lg">Book a 30-min call</a>
@@ -157,9 +163,15 @@
     <div class="wrap">
       <div class="footer-grid">
         <div>
-          <div class="brand" style="color: var(--white); margin-bottom: 12px;">
-            <span class="brand-fallback">RDG</span>
-            <span style="color: var(--white);">Revenue Durability Group</span>
+          <div class="brand" style="margin-bottom: 14px;">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 17 L10 12 L13 15 L19 8 M14 8 L19 8 L19 13" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="brand-text">
+              <span class="brand-a">Revenue</span><span class="brand-b">Durability</span><span class="brand-c">Group</span>
+            </span>
           </div>
           <p style="max-width: 380px;">Fractional Customer Success leadership for seed and Series A SaaS. Durable revenue, built on purpose.</p>
         </div>

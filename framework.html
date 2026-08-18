@@ -13,9 +13,15 @@
 <body>
   <header class="site-header">
     <nav class="nav" aria-label="Primary">
-      <a class="brand" href="index.html">
-        <img src="assets/img/logo.png" alt="Revenue Durability Group">
-        <span>Revenue Durability Group</span>
+      <a class="brand" href="index.html" aria-label="Revenue Durability Group — Home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 17 L10 12 L13 15 L19 8 M14 8 L19 8 L19 13" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-a">Revenue</span><span class="brand-b">Durability</span><span class="brand-c">Group</span>
+        </span>
       </a>
       <button class="nav-toggle" aria-label="Menu">☰</button>
       <ul class="nav-links">
@@ -51,15 +57,15 @@
         <p>Every customer dollar you book sits in one of three buckets:</p>
         <div class="grid grid-3 mt-2">
           <div class="card">
-            <h4 style="color: var(--success);">Durable revenue</h4>
+            <h4 style="background: none; -webkit-text-fill-color: var(--brand-mint); color: var(--brand-mint);">Durable revenue</h4>
             <p>Right-fit, well-onboarded, healthy usage, renewing and expanding. Compounds.</p>
           </div>
           <div class="card">
-            <h4 style="color: var(--warn);">Latent leak</h4>
+            <h4 style="background: none; -webkit-text-fill-color: var(--band-surviving-fg); color: var(--band-surviving-fg);">Latent leak</h4>
             <p>Looks fine on the dashboard but silently drifting. Will churn within two renewal cycles unless caught.</p>
           </div>
           <div class="card">
-            <h4 style="color: var(--danger);">Dead-on-arrival</h4>
+            <h4 style="background: none; -webkit-text-fill-color: var(--band-leaky-fg); color: var(--band-leaky-fg);">Dead-on-arrival</h4>
             <p>Wrong-fit at sale, never reached value. Charging them rent in your ARR line is a lie you're telling the board.</p>
           </div>
         </div>
@@ -68,7 +74,7 @@
     </section>
 
     <!-- PILLARS -->
-    <section style="background: var(--paper-2);">
+    <section class="section-alt">
       <div class="wrap-narrow">
         <div class="section-head">
           <span class="eyebrow">The five pillars</span>
@@ -81,7 +87,7 @@
         <!-- P1 -->
         <div class="report-section" id="pillar-1">
           <div style="display: flex; gap: 20px; align-items: baseline;">
-            <div style="font-size: 3rem; font-weight: 800; color: var(--amber); line-height: 1;">01</div>
+            <div class="phase-num" style="font-size: 3rem;">01</div>
             <div>
               <h4 style="margin-bottom: 4px;">Pillar 1</h4>
               <h3 style="margin-top: 0;">Fit</h3>
@@ -106,7 +112,7 @@
         <!-- P2 -->
         <div class="report-section" id="pillar-2">
           <div style="display: flex; gap: 20px; align-items: baseline;">
-            <div style="font-size: 3rem; font-weight: 800; color: var(--amber); line-height: 1;">02</div>
+            <div class="phase-num" style="font-size: 3rem;">02</div>
             <div>
               <h4 style="margin-bottom: 4px;">Pillar 2</h4>
               <h3 style="margin-top: 0;">Activation</h3>
@@ -131,7 +137,7 @@
         <!-- P3 -->
         <div class="report-section" id="pillar-3">
           <div style="display: flex; gap: 20px; align-items: baseline;">
-            <div style="font-size: 3rem; font-weight: 800; color: var(--amber); line-height: 1;">03</div>
+            <div class="phase-num" style="font-size: 3rem;">03</div>
             <div>
               <h4 style="margin-bottom: 4px;">Pillar 3</h4>
               <h3 style="margin-top: 0;">Signal</h3>
@@ -156,7 +162,7 @@
         <!-- P4 -->
         <div class="report-section" id="pillar-4">
           <div style="display: flex; gap: 20px; align-items: baseline;">
-            <div style="font-size: 3rem; font-weight: 800; color: var(--amber); line-height: 1;">04</div>
+            <div class="phase-num" style="font-size: 3rem;">04</div>
             <div>
               <h4 style="margin-bottom: 4px;">Pillar 4</h4>
               <h3 style="margin-top: 0;">Motion</h3>
@@ -182,7 +188,7 @@
         <!-- P5 -->
         <div class="report-section" id="pillar-5">
           <div style="display: flex; gap: 20px; align-items: baseline;">
-            <div style="font-size: 3rem; font-weight: 800; color: var(--amber); line-height: 1;">05</div>
+            <div class="phase-num" style="font-size: 3rem;">05</div>
             <div>
               <h4 style="margin-bottom: 4px;">Pillar 5</h4>
               <h3 style="margin-top: 0;">Operating System</h3>
@@ -250,9 +256,15 @@
     <div class="wrap">
       <div class="footer-grid">
         <div>
-          <div class="brand" style="color: var(--white); margin-bottom: 12px;">
-            <span class="brand-fallback">RDG</span>
-            <span style="color: var(--white);">Revenue Durability Group</span>
+          <div class="brand" style="margin-bottom: 14px;">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 17 L10 12 L13 15 L19 8 M14 8 L19 8 L19 13" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="brand-text">
+              <span class="brand-a">Revenue</span><span class="brand-b">Durability</span><span class="brand-c">Group</span>
+            </span>
           </div>
           <p style="max-width: 380px;">Fractional Customer Success leadership for seed and Series A SaaS. Durable revenue, built on purpose.</p>
         </div>
