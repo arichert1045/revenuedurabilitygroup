@@ -1,6 +1,7 @@
 // ===========================================================================
 // The Revenue Half-Life™ — Quiz Engine
-// Powers both the lite (10-question) and full (25-question) quizzes.
+// Powers both the lite (8-question) and full (20-question) quizzes.
+// Also computes the Founder Load score from questions marked founder: true.
 // Reads window.RDG_MODE ("lite" or "full") set in the host HTML.
 // ===========================================================================
 
@@ -135,7 +136,23 @@
     var total = Math.round(vals.reduce(function (a, b) { return a + b; }, 0) / vals.length);
     var band = DATA.bands.find(function (b) { return total >= b.min && total <= b.max; });
 
-    return { total: total, pillarPct: pillarPct, band: band };
+    // Founder Load: 100 minus the average founder-question score (lower is better)
+    var fRaw = 0, fCount = 0, fWhere = [];
+    qs.forEach(function (q, i) {
+      var s = state.answers[i];
+      if (q.founder && s !== null) {
+        fRaw += s; fCount += 1;
+        if (s <= 2) fWhere.push(q.pillar);
+      }
+    });
+    var founder = null;
+    if (fCount > 0 && DATA.founderLoad) {
+      var load = 100 - Math.round((fRaw / (fCount * 4)) * 100);
+      var level = DATA.founderLoad.find(function (l) { return load >= l.min && load <= l.max; });
+      founder = { load: load, level: level, where: fWhere };
+    }
+
+    return { total: total, pillarPct: pillarPct, band: band, founder: founder };
   }
 
   // ---------- results ----------
@@ -163,6 +180,15 @@
           '<div class="pbar"><div class="pbar-fill" style="width:' + pct + '%;"></div></div>' +
         '</div>';
     }).join('');
+    if (r.founder) {
+      pillarHtml += '' +
+        '<div class="pillar-score-card founder-score-card">' +
+          '<div class="pname">Founder Load</div>' +
+          '<div class="pscore">' + r.founder.load + '<span style="font-size:0.9rem;opacity:0.6;">/100</span></div>' +
+          '<div class="pbar"><div class="pbar-fill" style="width:' + r.founder.load + '%;"></div></div>' +
+          '<div class="pnote">' + escapeHtml(r.founder.level.label) + ' · lower is better</div>' +
+        '</div>';
+    }
     document.getElementById('pillar-scores').innerHTML = pillarHtml;
 
     // Detailed report (initially locked)
@@ -205,11 +231,33 @@
         '</div>';
     });
 
+    // Founder Load section
+    if (r.founder) {
+      var whereNames = r.founder.where.map(function (pid) {
+        return DATA.pillars.find(function (p) { return p.id === pid; }).name;
+      });
+      html += '' +
+        '<div style="border-top: 1px solid var(--line); padding-top: 20px; margin-top: 20px;">' +
+          '<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">' +
+            '<div><h4 style="margin-bottom: 4px;">The foundation · Founder Load</h4>' +
+              '<div class="text-slate" style="font-size:0.9rem;">Is the founder the load-bearing wall? Lower is better.</div></div>' +
+            '<div style="text-align:right;">' +
+              '<div style="font-size:2rem; font-weight:800; color:var(--navy-ink); line-height:1;">' + r.founder.load + '<span style="font-size:0.9rem; color:var(--slate);">/100</span></div>' +
+              '<span class="band-tag band-' + r.founder.level.tagClass + '">' + escapeHtml(r.founder.level.label) + '</span>' +
+            '</div>' +
+          '</div>' +
+          '<p class="mt-2">' + escapeHtml(r.founder.level.summary) +
+            (whereNames.length ? ' Where it shows: ' + escapeHtml(whereNames.join(', ')) + '.' : '') + '</p>' +
+          '<h4 class="mt-2" style="color:var(--amber);">What to do first</h4>' +
+          '<ul>' + r.founder.level.recs.map(function (r2) { return '<li>' + escapeHtml(r2) + '</li>'; }).join('') + '</ul>' +
+        '</div>';
+    }
+
     // Comparative benchmark note (kept honest — sample sizes matter)
     html += '' +
       '<div class="callout" style="margin-top: 32px;">' +
         '<span class="label">A note on benchmarks</span>' +
-        'These bands are RDG\'s working bands for seed and Series A SaaS. They tighten with every engagement we run. If your pillar Half-Lives are unevenly distributed (e.g. very strong on Motion but weak on Fit), that pattern is more diagnostic than the headline number.' +
+        'These bands are RDG\'s working bands for seed and Series A SaaS. They tighten with every engagement we run. If your pillar Half-Lives are unevenly distributed (e.g. very strong on Motions but weak on Fit), that pattern is more diagnostic than the headline number.' +
       '</div>';
 
     host.innerHTML = html;
