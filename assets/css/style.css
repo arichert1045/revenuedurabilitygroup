@@ -741,3 +741,10 @@ ol li::marker { color: var(--brand-teal); font-weight: 700; }
 ul { color: var(--ink-2); padding-left: 22px; }
 ul li { margin-bottom: 6px; }
 ul li::marker { color: var(--brand-teal); }
+
+/* Four-pillar anatomy: motion cards and foundation card */
+.report-section .card p + p { margin-top: 10px; }
+.foundation-card .foundation-label {
+  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--brand-mint); font-weight: 700; margin: 0 0 4px;
+}
