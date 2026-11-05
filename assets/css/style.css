@@ -748,3 +748,5 @@ ul li::marker { color: var(--brand-teal); }
   font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--brand-mint); font-weight: 700; margin: 0 0 4px;
 }
+.founder-score-card .pbar-fill { background: var(--band-surviving-fg); box-shadow: none; }
+.founder-score-card .pnote { font-size: 0.72rem; color: var(--ink-3); margin-top: 8px; }
